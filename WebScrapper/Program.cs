@@ -6,15 +6,13 @@ namespace WebScrapper
     {
         static void Main(string[] args)
         {
-            Person person = new Person();
-            person.FirstName = "Josh";
-            person.LastName = "Gulledge";
+            Person person1 = new Person("Josh", "Gulledge");
 
-            Console.WriteLine("{0} {1}", person.FirstName, person.LastName);
-            Console.WriteLine(person.HasDocuments);
+            person1.Sleep();
 
-            person.FirstName = "";
-            Console.WriteLine(person.FirstName);
+            SuperPerson person2 = new SuperPerson("Clark", "Kent");
+            person2.Sleep();
+            person2.Fly();
         }
     }
 }

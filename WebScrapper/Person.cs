@@ -3,54 +3,30 @@ namespace WebScrapper
 {
     public class Person
     {
-        string _ssn = "SSN";
-        string _passportData = "PassPortData";
-        string _driver = "DriverNumber";
-        string _firstName = "Bethany";
-        string _lastName = "Hampton";
+        // properties
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-
-        public string FirstName {
-            get
-            {
-                return _firstName;
-            }
-            set
-            {
-                if (value.Length < 1)
-                {
-                    Console.WriteLine("Input is not accepted. Try again");
-                    return;
-                }
-               
-                 _firstName = value;
-            }
-        }
-
-        public string LastName
+        // constructor method
+        public Person (string FirstName, string LastName)
         {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                if (value.Length < 1)
-                {
-                    Console.WriteLine("Input is not accepted. Try again");
-                    return;
-                }
-
-                _lastName = value;
-            }
+            this.FirstName = FirstName;
+            this.LastName = LastName;
         }
 
-        public bool HasDocuments {
-            get
-            {
-                return _ssn.Length > 0 && _passportData.Length > 0 && _driver.Length > 0;
-            }
+        public void Walk()
+        {
+            Console.WriteLine("I, {0} am walking.", this.FirstName);
+        }
 
+        public void Eat()
+        {
+            Console.WriteLine("I, {0} am eating", this.FirstName);
+        }
+
+        public void Sleep()
+        {
+            Console.WriteLine("I, {0} am sleeping", this.FirstName);
         }
     }
 }
