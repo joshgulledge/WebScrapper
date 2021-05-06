@@ -10,4 +10,10 @@
     <Folder Include="Data\" />
     <Folder Include="Workers\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="readme.md" />
+  </ItemGroup>
 </Project>
