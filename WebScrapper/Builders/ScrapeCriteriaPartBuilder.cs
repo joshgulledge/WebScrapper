@@ -20,7 +20,7 @@ namespace WebScrapper.Builders
             _regexOption = RegexOptions.None;
         }
 
-        public ScrapeCriteriaPartBuilder WithRegex(string regex)
+        public ScrapeCriteriaPartBuilder withRegex(string regex)
         {
             _regex = regex;
             return this;
