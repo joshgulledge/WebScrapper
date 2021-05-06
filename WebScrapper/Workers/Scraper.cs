@@ -1,38 +1,41 @@
 ﻿using System;
+using SimpleWebScraper.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
-using WebScrapper.Data;
+using System.Threading.Tasks;
 
-namespace WebScrapper.Workers
+namespace SimpleWebScraper.Workers
 {
-    public class Scraper
+    class Scraper
     {
         public List<string> Scrape(ScrapeCriteria scrapeCriteria)
         {
-            List<string> scrappedElements = new List<string>();
+            List<string> scrapedElements = new List<string>();
 
-            MatchCollection matches = Regex.Matches(scrapeCriteria.Data, scrapeCriteria.Regex, scrapeCriteria.RegexOptions);
+            MatchCollection matches = Regex.Matches(scrapeCriteria.Data, scrapeCriteria.Regex, scrapeCriteria.RegexOption);
 
             foreach (Match match in matches)
             {
                 if (!scrapeCriteria.Parts.Any())
                 {
-                    scrappedElements.Add(match.Groups[0].Value);
+                    scrapedElements.Add(match.Groups[0].Value);
                 }
                 else
                 {
-                    foreach(var part in scrapeCriteria.Parts)
+                    foreach (var part in scrapeCriteria.Parts)
                     {
                         Match matchedPart = Regex.Match(match.Groups[0].Value, part.Regex, part.RegexOption);
 
-                        if (matchedPart.Success) scrappedElements.Add(matchedPart.Groups[1].Value);
+                        if (matchedPart.Success) scrapedElements.Add(matchedPart.Groups[1].Value);
                     }
                 }
             }
 
-            return scrappedElements;
+            return scrapedElements;
         }
-        
     }
 }
+
